@@ -171,7 +171,7 @@
     if (!t) return;
     const curTab = q("nav.toc a.active, nav.toc a[aria-current]")?.dataset.view || lastTab || "es";
     lastScroll = window.scrollY;
-    history.pushState({ view: "ev", from: curTab, fromName: lastTabName, scroll: lastScroll }, "", "#ev");
+    window.history.pushState({ view: "ev", from: curTab, fromName: lastTabName, scroll: lastScroll }, "", "#ev");
     setTimeout(setupEvTopNav, 50);
   }, true);
 

@@ -76,7 +76,7 @@ class handler(Handler):
                 return self.send_json({'error': 'Sign in required'}, 401)
             clip = ROOT / 'private' / 'narration' / 'pru' / f'{m.group(1)}.mp3'
             return self.send_body(clip.read_bytes(), 'audio/mpeg') if clip.is_file() else self.send_json({'error': 'Not found'}, 404)
-        m = re.fullmatch(r'/media/([a-z0-9_.-]{1,80}\.jpg)', self.path)
+        m = re.fullmatch(r'/media/([A-Za-z0-9_.-]{1,80}\.jpg)', self.path)
         if m:
             if not self.authed():
                 return self.send_json({'error': 'Sign in required'}, 401)
